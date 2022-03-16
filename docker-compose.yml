@@ -1,0 +1,23 @@
+version: "3"
+
+services:
+  dynamodb:
+    restart: always
+    image: amazon/dynamodb-local:latest
+    environment:
+      - AWS_ACCESS_KEY_ID=AKIAIOSFODNN7EXAMPLE
+      - AWS_SECRET_ACCESS_KEY=wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY
+      - AWS_DEFAULT_REGION=us-west-1
+    ports:
+      - 8000
+
+  web:
+    image: test
+    environment:
+      - AWS_ACCESS_KEY_ID=AKIAIOSFODNN7EXAMPLE
+      - AWS_SECRET_ACCESS_KEY=wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY
+      - AWS_DEFAULT_REGION=us-west-1
+    links:
+      - dynamodb:dynamodb
+    depends_on:
+      - dynamodb

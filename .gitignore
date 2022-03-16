@@ -1,0 +1,9 @@
+.idea
+.DS_Store
+.venv
+venv
+env
+myenv
+*.pyc
+*.mo
+.env
