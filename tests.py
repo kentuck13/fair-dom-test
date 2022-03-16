@@ -45,6 +45,7 @@ class TestStringMethods(unittest.TestCase):
                 'date_time': str(datetime.utcnow()),
             }
         )
+        self.assertEqual(self.table.item_count, 4)
 
     def test_get_item(self):
         data = self._fixtures()
@@ -54,7 +55,6 @@ class TestStringMethods(unittest.TestCase):
         self.assertEqual(response['Item'], data[0])
 
     def test_scan(self):
-        data = self._fixtures()
         self.assertEqual(self.table.item_count, 3)
 
         response = self.table.scan(
