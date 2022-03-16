@@ -27,14 +27,10 @@ class TestStringMethods(unittest.TestCase):
 
         scan = self.table.scan()
         with self.table.batch_writer() as batch:
-            for each in scan['Items']:
-                batch.delete_item(
-                    Key=each
-                )
+            [batch.delete_item(Key=each) for each in scan['Items']]
 
         with self.table.batch_writer() as batch:
-            for i in data:
-                batch.put_item(Item=i)
+            [batch.put_item(Item=i) for i in data]
 
         return data
 
