@@ -2,21 +2,21 @@
   "TableName": "users",
   "KeySchema": [
     {
-      "AttributeName": "username",
+      "AttributeName": "uuid",
       "KeyType": "HASH"
     },
     {
-      "AttributeName": "last_name",
+      "AttributeName": "date_time",
       "KeyType": "RANGE"
     }
   ],
   "AttributeDefinitions": [
     {
-      "AttributeName": "username",
+      "AttributeName": "uuid",
       "AttributeType": "S"
     },
     {
-      "AttributeName": "last_name",
+      "AttributeName": "date_time",
       "AttributeType": "S"
     }
   ],
